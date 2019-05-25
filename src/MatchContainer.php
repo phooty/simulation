@@ -2,9 +2,12 @@
 namespace Phooty\Simulation;
 
 use Phooty\Simulation\Tilemap\Tilemap;
+use Phooty\Simulation\Support\Traits\SimAware;
 
 class MatchContainer
 {
+    use SimAware;
+    
     /**
      * The Match's tilemap
      *
@@ -12,8 +15,11 @@ class MatchContainer
      */
     protected $tilemap;
 
-    public function __construct(Tilemap $tilemap)
-    {
+    public function __construct(
+        MatchSimulator $sim,
+        Tilemap $tilemap
+    ) {
+        $this->sim = $sim;
         $this->tilemap = $tilemap;
     }
 

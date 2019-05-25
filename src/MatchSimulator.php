@@ -66,7 +66,7 @@ class MatchSimulator
             $this->timer->tick(mt_rand(100, 1000));
             //dd($this->timer);
         }
-        dd($this);
+        //dd($this);
         return;
     }
 

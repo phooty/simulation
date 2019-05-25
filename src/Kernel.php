@@ -83,6 +83,7 @@ class Kernel
         $this->app->instance(static::class, $this);
 
         $this->app->singleton(MatchSimulator::class);
+
     }
 
     public function simulate()
