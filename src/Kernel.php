@@ -106,11 +106,6 @@ class Kernel
         });
     }
 
-    public function simulate()
-    {
-        return $this->getSimulator()->run();
-    }
-
     protected function getSimulator(array $settings = []): MatchSimulator
     {
         isset($this->sim) ?: $this->sim = $this->app->make(
@@ -128,29 +123,6 @@ class Kernel
             }
             self::$aliased = true;
         }
-    }
-
-    public function setHomeTeam($team)
-    {
-        
-    }
-
-    public function setAwayTeam($team)
-    {
-
-    }
-
-    public function setGround(...$ground)
-    {
-        $ground = Support\SetGround::resolve($ground);
-
-        if (!$ground) {
-            throw new \Exception("Could not load ground");
-        }
-
-        $this->registerPendingTilemap($ground);
-
-        return $this;
     }
 
     /**

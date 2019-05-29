@@ -28,4 +28,9 @@ class Team
     {
         return $this->isAway;
     }
+
+    public function getPlayers()
+    {
+        
+    }
 }
