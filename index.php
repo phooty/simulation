@@ -9,25 +9,17 @@ use Phooty\Simulation\Factory\TeamFactory;
 require __DIR__.'/vendor/autoload.php';
 
 $start = Carbon::now()->getTimestamp();
-//dump($start);
-Kernel::loadClassAliases();
-/* if (1 < $argc) {
-    // args
-    dd($argv);
-} */
-//dd(PhootyGround::subiaco());
+
 $kernel = new Kernel();
 
-
 $factory = $kernel->app()->make(TeamFactory::class);
-
 
 $home = $factory->create();
 
 $away = $factory->create(['away' => true]);
 
 $sim = $kernel->makeSim(function ($builder) use ($home, $away) {
-    $builder->setGround(PhootyGround::mcg());
+    $builder->setGround(Phooty\Simulation\Tilemap\Ground::mcg());
     $builder->setHomeTeam($home);
     $builder->setAwayTeam($away);
 });
