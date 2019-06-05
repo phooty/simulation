@@ -1,10 +1,7 @@
 <?php
 use Phooty\Simulation\Kernel;
 use Carbon\Carbon;
-use Phooty\Simulation\Entities\Team;
 use Phooty\Simulation\Factory\TeamFactory;
-
-//use Phooty\Simulation\MatchSimulator;
 
 require __DIR__.'/vendor/autoload.php';
 
@@ -38,14 +35,9 @@ echo <<<EOT
 <body>
 EOT;
 
-
-//dd($sim);
-
 $sim->run();
 
 $total = Carbon::now()->getTimestamp() - $start;
-
-//dump($end);
 
 dump("Sim took {$total} microseconds");
 
