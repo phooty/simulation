@@ -2,6 +2,7 @@
 use Phooty\Simulation\Kernel;
 use Carbon\Carbon;
 use Phooty\Simulation\Factory\TeamFactory;
+use Eddy\Tilemap\Visualizer\HtmlDumper;
 
 require __DIR__.'/vendor/autoload.php';
 
@@ -38,6 +39,9 @@ EOT;
 $sim->run();
 
 $total = Carbon::now()->getTimestamp() - $start;
+
+//HtmlDumper::dump($sim->getMatch()->getTilemap());
+//dd();
 
 dump("Sim took {$total} microseconds");
 
