@@ -91,7 +91,7 @@ class Kernel
         
         $this->app->singleton(Support\Timer::class, function () {
             return new Support\Timer(
-                $this->config->get('settings.period_length'),
+                $this->config->get('settings.quarter_length'),
                 $this->app->make(Emitter::class)
             );
         });

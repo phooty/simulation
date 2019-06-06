@@ -49,4 +49,4 @@ $data = new Data($data);
 
 $dumper->dump($data);
 
-dump($results, $sim);
+dump($kernel, $sim);
