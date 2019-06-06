@@ -2,13 +2,15 @@
 use Phooty\Simulation\Kernel;
 use Carbon\Carbon;
 use Phooty\Simulation\Factory\TeamFactory;
-use Eddy\Tilemap\Visualizer\HtmlDumper;
+//use Eddy\Tilemap\Visualizer\HtmlDumper;
 
 require __DIR__.'/vendor/autoload.php';
 
 $start = Carbon::now()->getTimestamp();
 
 $kernel = new Kernel();
+
+//dd($kernel);
 
 $factory = $kernel->app()->make(TeamFactory::class);
 
@@ -22,7 +24,7 @@ $sim = $kernel->makeSim(function ($builder) use ($home, $away) {
     $builder->setAwayTeam($away);
 });
 
-echo <<<EOT
+/* echo <<<EOT
 <html>
 <head>
     <title>Phooty</title>
@@ -34,9 +36,9 @@ echo <<<EOT
     </style>
 </head>
 <body>
-EOT;
+EOT; */
 
-$sim->run();
+dd($sim->run());
 
 $total = Carbon::now()->getTimestamp() - $start;
 
@@ -46,6 +48,6 @@ $total = Carbon::now()->getTimestamp() - $start;
 dump("Sim took {$total} microseconds");
 
 //dd($kernel);
-dump($sim->getMatch());
+//dump($sim->getMatch());
 
-echo "</body></html>";
+//echo "</body></html>";

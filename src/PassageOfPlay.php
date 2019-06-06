@@ -1,15 +1,40 @@
 <?php
 namespace Phooty\Simulation;
 
-use Phooty\Simulation\Actions\Action;
+use Phooty\Simulation\Support\Stats;
 
 class PassageOfPlay
 {
     protected $actions = [];
 
-    public function addAction(Action $action)
+    protected $match;
+
+    protected $finished = false;
+
+    public function __construct(MatchContainer $match)
     {
-        $this->actions[] = $action;
+        $this->match = $match;
+    }
+
+    public function run()
+    {
+        $timer = $this->match->getTimer();
+        $stats = Stats::all();
+        while (!$this->finished) {
+            $this->actions[] = array_random($stats);
+            $timer->tick(mt_rand(100, 1000));
+            if (5 === mt_rand(0, 5)) {
+                $this->finish();
+            }
+        }
+
+        return $this;
+    }
+
+    public function finish()
+    {
+        $this->finished = true;
+
         return $this;
     }
 }

@@ -42,7 +42,7 @@ class Kernel
         
         $this->initConfig($config);
         
-        if ($this->config->get('sim.dev_mode')) {
+        if ($this->config->get('settings.debug')) {
             $this->registerDevBindings();
         }
 
@@ -87,16 +87,12 @@ class Kernel
             });
         }
 
-        $this->app->singleton(Dispatcher::class, function () {
-            return (new Bootstrap\BootstrapDispatcher)->bootstrap(
-                new Dispatcher($this->app)
-            );
-        });
+        $this->app->singleton(Emitter::class);
         
         $this->app->singleton(Support\Timer::class, function () {
             return new Support\Timer(
-                $this->config->get('sim.period_length'),
-                $this->app->make(Dispatcher::class)
+                $this->config->get('settings.period_length'),
+                $this->app->make(Emitter::class)
             );
         });
 
