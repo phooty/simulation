@@ -1,5 +1,5 @@
 <?php
-namespace Phooty\Simulation;
+namespace Phooty\Simulation\Match;
 
 use Phooty\Simulation\Tilemap\Tilemap;
 use Phooty\Simulation\Support\Timer;

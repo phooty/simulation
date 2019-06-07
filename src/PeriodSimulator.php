@@ -1,7 +1,7 @@
 <?php
 namespace Phooty\Simulation;
 
-use Phooty\Simulation\Support\Stats;
+use Phooty\Simulation\Match\MatchContainer;
 
 class PeriodSimulator
 {

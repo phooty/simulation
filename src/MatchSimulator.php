@@ -3,6 +3,7 @@ namespace Phooty\Simulation;
 
 use Phooty\Simulation\Support\MapPlacer;
 use Phooty\Simulation\Support\Traits\EmitsEvents;
+use Phooty\Simulation\Match\MatchContainer;
 
 class MatchSimulator
 {
