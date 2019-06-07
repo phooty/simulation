@@ -10,6 +10,7 @@ use Phooty\Simulation\Tilemap\Tilemap;
 use Phooty\Simulation\Tilemap\PendingMap;
 use Phooty\Simulation\Match\MatchContainer;
 use Phooty\Simulation\Core\MatchSimulator;
+use Phooty\Simulation\Support\MatchBuilder;
 
 class Kernel
 {
@@ -141,11 +142,32 @@ class Kernel
      */
     public function makeSim(callable $closure)
     {
-        $builder = $this->app->make(Support\MatchBuilder::class);
+        $match = $this->app->make(Support\MatchBuilder::class);
 
-        call_user_func($closure, $builder);
+        call_user_func($closure, $match);
 
-        $this->app->instance(MatchContainer::class, $builder->create());
+        $this->app->instance(MatchContainer::class, $match->create());
+
+        return $this->getSimulator();
+    }
+
+    /**
+     * Create a MatchSimulator from an existing MatchBuilder.
+     *
+     * @param MatchBuilder $match
+     * @return MatchSimulator
+     * 
+     * @throws Exception thrown if the match is invalid
+     */
+    public function build(MatchBuilder $match)
+    {
+        if (!$match->isValid()) {
+            throw new \Exception(
+                "Invalid match!"
+            );
+        }
+
+        $this->app->instance(MatchContainer::class, $match->create());
 
         return $this->getSimulator();
     }
