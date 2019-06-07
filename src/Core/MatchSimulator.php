@@ -1,9 +1,10 @@
 <?php
-namespace Phooty\Simulation;
+namespace Phooty\Simulation\Core;
 
 use Phooty\Simulation\Support\MapPlacer;
 use Phooty\Simulation\Support\Traits\EmitsEvents;
 use Phooty\Simulation\Match\MatchContainer;
+use Phooty\Simulation\Emitter;
 
 class MatchSimulator
 {

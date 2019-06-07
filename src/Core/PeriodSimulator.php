@@ -1,5 +1,5 @@
 <?php
-namespace Phooty\Simulation;
+namespace Phooty\Simulation\Core;
 
 use Phooty\Simulation\Match\MatchContainer;
 

@@ -4,6 +4,8 @@ values:
   behinds:      1       # How many points a behind is worth
   supergoals:   9       # How many points a supergoal is worth, if enabled
 
+rules:
+  supergoals:   false   # Enable supergoals - disabled by default
 
 # Here you can modify what happens when the ball hits a goal/behind post
 # Valid options are:

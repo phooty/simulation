@@ -9,6 +9,7 @@ use Phooty\Simulation\Support\Traits\AppAware;
 use Phooty\Simulation\Tilemap\Tilemap;
 use Phooty\Simulation\Tilemap\PendingMap;
 use Phooty\Simulation\Match\MatchContainer;
+use Phooty\Simulation\Core\MatchSimulator;
 
 class Kernel
 {
