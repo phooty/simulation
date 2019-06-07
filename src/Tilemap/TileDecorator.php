@@ -46,7 +46,7 @@ class TileDecorator implements TileInterface
      */
     public function addEntity(SimulationEntity $entity)
     {
-        $id = $entity->getId()->toString();
+        $id = $entity->getId();
 
         if (isset($this->entities[$id])) {
             throw new \LogicException(
